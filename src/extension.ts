@@ -43,8 +43,12 @@ class EnhancedLinkProvider implements vscode.DocumentLinkProvider {
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-	let provider = new EnhancedLinkProvider();
-	let disposable2 = vscode.languages.registerDocumentLinkProvider({ scheme: 'file', language: 'markdown' }, provider);
+	const provider = new EnhancedLinkProvider();
+
+	const disposable1 = vscode.languages.registerDocumentLinkProvider({ scheme: 'file', language: 'markdown' }, provider);
+	context.subscriptions.push(disposable1);
+
+	const disposable2 = vscode.languages.registerDocumentLinkProvider({ scheme: 'file', language: 'plaintext' }, provider);
 	context.subscriptions.push(disposable2);
 }
 
