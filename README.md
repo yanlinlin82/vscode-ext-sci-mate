@@ -1,4 +1,4 @@
-Science Mate (VS Code Extension)
+# Science Mate (VS Code Extension)
 
 ## Introduction
 
